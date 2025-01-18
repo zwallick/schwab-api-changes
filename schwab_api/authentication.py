@@ -101,7 +101,10 @@ class SessionManager:
             return True
         else:
             # attempt to login
-            return asyncio.run(self._async_login())
+            if not asyncio.get_event_loop().is_running():
+                return asyncio.run(self._async_login())
+            else:
+                return await self._async_login()
 
     def update_token(self, token_type='api', login=True):
         r = self.session.get(f"https://client.schwab.com/api/auth/authorize/scope/{token_type}")
