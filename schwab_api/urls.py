@@ -1,6 +1,6 @@
 
 def homepage():
-    return "https://www.schwab.com/"
+    return "https://www.schwab.com/client-home"
 
 def account_summary():
     return "https://client.schwab.com/clientapps/accounts/summary/"
